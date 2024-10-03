@@ -2,21 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+        </nav>
+		<div class="profile-icon-header">
+			<img src="images/pfp.jpg" alt="pfp" class="profile-icon-header">
+		</div>
+    </header>
 
-<a href="index.html">Back home</a>
+    <main class="login">
+        <h2>Welcome to PostIt</h2>
+        <form action="index.html" method="post">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
 
-<h2>Login</h2>
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required><br><br>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required><br><br>
-
-    <input type="submit" value="Login">
-
-
+            <button type="submit">Log in</button>
+        </form>
+        <a href="#">Create an account</a> | <a href="#">Forgot password?</a>
+    </main>
 </body>
 </html>

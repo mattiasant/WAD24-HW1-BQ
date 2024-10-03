@@ -2,21 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Post</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+        </nav>
+		<div class="profile-icon-header">
+			<img src="images/pfp.jpg" alt="pfp" class="profile-icon-header">
+		</div>
+    </header>
 
-<a href="index.html">Back home</a>
+    <main class="form">
+        <form action="index.html" method="post">
+            <label for="postBody">Post body</label>
+            <textarea id="postBody" name="postBody" ></textarea>
 
-<h2>Create a post</h2>
-<label for="postbody">Post body:</label>
-<input type="text" id="postbody" name="postbody" required><br><br>
+            <label for="file">Select file</label>
+            <input type="file" id="file" name="file">
 
-<label for="file">Choose a file:</label>
-<input type="file" id="file" name="file" required><br><br>
+            <button type="submit">Create post</button>
+        </form>
+    </main>
 
-<input type="submit" value="Upload">
-
-
+    
 </body>
 </html>
+
