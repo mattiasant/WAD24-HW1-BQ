@@ -6,7 +6,7 @@ DEADLINE 6 October 2024 23:59/October 2024 23:59
 
 
 TEAM BQ:  
-*Christine Kaldoja
-*Mattias Antsov
+*Christine Kaldoja  
+*Mattias Antsov  
 *Robert Pihu
 

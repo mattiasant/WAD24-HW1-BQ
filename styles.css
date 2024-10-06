@@ -137,6 +137,33 @@ form button:hover {
 	color: white;
 }
 
+/*ID selector*/
+#homeLink {
+    font-weight: bold;
+    color: darkorchid;
+}
+
+#email {
+    color: darkmagenta;
+}
+
+/*Adjacent siblings*/
+#homeLink + #addPostLink {
+    color: mediumorchid;
+}
+#addPostLink + #loginLink {
+    color: mediumorchid;
+}
+
+/*Child selector*/
+footer > p > a {
+    color: firebrick;
+}
+
+/*General siblings*/
+#email ~ #password {
+    color: darkmagenta;
+}
 
 
 /* Flexbox */
