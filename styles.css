@@ -22,6 +22,11 @@ nav a:hover {
     background-color: #9079b5;
 }
 
+nav > a {
+	font-weight: bold;
+    color: #3c293f;
+}
+
 .profile-icon-header {
     width: 40px;
     height: 40px;
@@ -51,6 +56,14 @@ nav a:hover {
 .post-header {
     display: flex;
     align-items: center;
+}
+
+.post-header + img {
+    border: 2px solid #ddd;
+}
+
+.post-header ~ p {
+    color: #555;
 }
 
 .profile-pic-post {
@@ -175,4 +188,18 @@ footer > p > a {
     form {
         width: 75%;
     }
+}
+
+/* Id Selectors */
+
+#homeLink {
+    color: #333;
+}
+
+#addPostLink {
+    color: #333;
+}
+
+#loginLink {
+    color: #333;
 }
