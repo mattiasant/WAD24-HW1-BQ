@@ -182,7 +182,7 @@ footer > p > a {
 /* Flexbox */
 @media (max-width: 600px) {
     .post {
-        width: 75%;
+        width: 80%;
     }
 
     form {
@@ -202,4 +202,9 @@ footer > p > a {
 
 #loginLink {
     color: #333;
+}
+
+.author {
+    margin-right: 20px;
+    font-size: 15px;
 }
