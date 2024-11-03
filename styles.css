@@ -2,10 +2,13 @@ body {
     font-family: Verdana;
     margin: 0;
     padding: 0;
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
 header {
     background-color: #ddd1f0;
+    width: 100%;
     padding: 10px;
     display: flex;
     justify-content: space-between;
@@ -207,4 +210,30 @@ footer > p > a {
 .author {
     margin-right: 20px;
     font-size: 15px;
+}
+
+.dropdown-menu {
+    display: none; /* This hides the dropdown menu initially */
+    position: absolute;
+    top: 60px; /* Adjust to align below the profile icon */
+    right: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    width: 200px;
+    z-index: 1000;
+}
+
+.dropdown-menu p, .dropdown-menu a {
+    margin: 0.5rem 0;
+    color: #333;
+    text-decoration: none;
+}
+
+.dropdown-menu a.logout {
+    color: red;
+    font-weight: bold;
+    display: block;
+    margin-top: 1rem;
 }
