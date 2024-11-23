@@ -3,5 +3,5 @@
 TEAM BQ:  
 *Christine Kaldoja  </br>
 *Mattias Antsov  </br>
-*Robert Pihu
+
 
