@@ -1,0 +1,59 @@
+<template>
+    <div class="post">
+      <div class="post-header">
+        <!-- Profile picture -->
+        <div class="profile-pic-post">
+          <img
+            src="https://i.ibb.co/gdKTh5F/pfp.jpg"
+            alt="Profile Picture"
+            class="profile-icon-header"
+          />
+        </div>
+
+        <!-- Author and Date -->
+        <span class="author">{{ post.author }}</span>
+        <span class="post-date">{{ formattedDate }}</span>
+      </div>
+  
+      <!-- Post Content -->
+      <p class="post-text">{{ post.content }}</p>
+      <img
+        v-if="post.image"
+        :src="post.image"
+        alt="Post Image"
+        class="post-image"
+      />
+  
+      <!-- Like Button -->
+      <button @click="likePost" class="like-button">
+        👍 Like ({{ post.likes }})
+      </button>
+    </div>
+  </template>
+  
+  <script>
+  export default {
+    props: ['postId'], //The ID of the post, passed from the parent component
+    computed: {
+      post() {
+        //Fetches the specific post from Vuex using the postId
+        return this.$store.state.posts.find(post => post.id === this.postId);
+      },
+      formattedDate() {
+        //Format the date for display
+        return new Date(this.post.date).toDateString();
+      }
+    },
+    methods: {
+      likePost() {
+        this.$store.commit('incrementLikes', this.postId);
+      }
+    }
+  };
+  </script>
+  
+
+  
+  <style scoped>
+  </style>
+  
