@@ -2,8 +2,10 @@
   "name": "wad24-hw1-bq-1",
   "version": "1.0.0",
   "description": "The main aim of this homework is to assess our capabilities to create useful HTML webpages and style them using CSS.",
-  "main": "dropdown.js",
+  "main": "index.html",
   "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,6 +13,10 @@
   "license": "ISC",
   "dependencies": {
     "vue": "^3.5.13",
-    "vue-router": "^4.4.5"
+    "vue-router": "^4.4.5",
+    "vuex": "^4.1.0"
+  },
+  "devDependencies": {
+    "@vue/cli-service": "^5.0.8"
   }
 }

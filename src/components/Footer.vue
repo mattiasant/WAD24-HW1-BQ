@@ -1,7 +1,8 @@
 <template>
     <footer>
-      <p>&copy; BQ App 2024 | All rights reserved.</p>
+      <p>&copy; 2024 | All rights reserved.</p>
     </footer>
+  
 </template>
   
 <script>

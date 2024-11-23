@@ -1,15 +1,16 @@
 <template>
-  <div id="app">
-    <Header />
-    <router-view />
+  <div>
+    <Header /> 
+    <router-view /> 
     <Footer />
   </div>
 </template>
 
+
 <script>
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
-import Post from './components/Post.vue';
+import Post from './views/Post.vue';
 
 export default {
   components: {
@@ -21,7 +22,6 @@ export default {
 </script>
 
 <style>
-@import './assets/styles.css';
 </style>
 
 
