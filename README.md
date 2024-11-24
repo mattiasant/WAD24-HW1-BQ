@@ -3,5 +3,6 @@
 TEAM BQ:  
 *Christine Kaldoja  </br>
 *Mattias Antsov  </br>
+*Mihkel Rump
 
 
