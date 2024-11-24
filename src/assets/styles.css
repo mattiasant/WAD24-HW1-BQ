@@ -93,6 +93,18 @@ nav > a {
     font-size: 14px;
 }
 
+.like-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+.likes-count {
+  font-size: 14px;
+  color: #000000;
+  
+}
+
 .like-button {
     margin-top: 5px;
     margin-bottom: 12px;
@@ -230,7 +242,7 @@ footer > p > a {
 .dropdown-menu {
     display: none; /* This hides the dropdown menu initially */
     position: absolute;
-    top: 60px; /* Adjust to align below the profile icon */
+    top: 60px; 
     right: 10px;
     background-color: #fff;
     border: 1px solid #ddd;

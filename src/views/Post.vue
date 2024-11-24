@@ -24,12 +24,13 @@
         class="post-image"
       />
   
-      <!-- Like Button -->
-      <button @click="likePost" class="like-button">
-        👍 Like ({{ post.likes }})
-      </button>
+      <!-- Like Section -->
+    <div class="like-section">
+      <button @click="likePost" class="like-button">👍</button>
+      <span class="likes-count">{{ post.likes }} likes</span>
     </div>
-  </template>
+  </div>
+</template>
   
   <script>
   export default {
