@@ -2,7 +2,7 @@ import { createStore } from 'vuex';
 
 export default createStore({
   state: {
-    posts: [
+    posts: JSON.parse(localStorage.getItem('posts')) || [
       {
         id: 1,
         author: "Alice Johnson",
@@ -88,10 +88,16 @@ export default createStore({
   mutations: {
     incrementLikes(state, postId) {
       const post = state.posts.find(post => post.id === postId);
-      if (post) post.likes++;
+      if (post) {
+        post.likes++;
+        // Update the localStorage when a like count is changed
+        localStorage.setItem('posts', JSON.stringify(state.posts));
+      }
     },
     resetLikes(state) {
-      state.posts.forEach(post => (post.likes = 0));
+      state.posts.forEach(post => post.likes = 0);
+      // Reset the likes in localStorage
+      localStorage.setItem('posts', JSON.stringify(state.posts));
     }
   }
 });

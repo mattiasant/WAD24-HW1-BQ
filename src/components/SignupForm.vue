@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import "@/assets/styles.css"; /* Adjust the path based on your project's structure */
+import "@/assets/styles.css"; 
 
 export default {
   name: "SignupForm",
@@ -38,7 +38,6 @@ export default {
   methods: {
     handleSignup() {
       alert(`Signup attempted with Email: ${this.email}`);
-      // Add form submission logic here (e.g., API call).
     },
   },
 };

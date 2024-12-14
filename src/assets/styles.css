@@ -43,7 +43,7 @@ nav > a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 50px;
+    padding: 30px;
     flex-grow: 1;
 }
 
@@ -157,13 +157,13 @@ form input, form textarea, form button {
     margin-top: 50px;
 }
 
-.login form {
+.login-form {
     background-color: #ddd1f0;
     padding: 20px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 400px;
     margin: 0 auto;
 }
 
@@ -171,6 +171,7 @@ form button {
     background-color: #b59ed9;
     color: #1f1330;
     border: none;
+    border-radius: 4px;
     padding: 10px;
     cursor: pointer;
 }
@@ -180,7 +181,6 @@ form button:hover {
 	color: white;
 }
 
-/*ID selector*/
 #homeLink {
     font-weight: bold;
     color: darkorchid;

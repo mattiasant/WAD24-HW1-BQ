@@ -34,14 +34,12 @@
   
   <script>
   export default {
-    props: ['postId'], //The ID of the post, passed from the parent component
+    props: ['postId'],
     computed: {
       post() {
-        //Fetches the specific post from Vuex using the postId
         return this.$store.state.posts.find(post => post.id === this.postId);
       },
       formattedDate() {
-        //Format the date for display
         return new Date(this.post.date).toDateString();
       }
     },
@@ -52,9 +50,6 @@
     }
   };
   </script>
-  
-
-  
   <style scoped>
   </style>
   
