@@ -3,6 +3,7 @@ import MainPage from '@/views/MainPage.vue';
 import SignupPage from '@/views/SignupPage.vue';
 import LoginPage from '@/views/LoginPage.vue';
 import ContactPage from '@/views/ContactPage.vue';
+import PostDetails from './views/PostDetails.vue';
 
 const isAuthenticated = () => !!localStorage.getItem('authToken'); // Simulate auth check
 
@@ -11,6 +12,7 @@ const routes = [
   { path: '/signup', name: 'Signup', component: SignupPage },
   { path: '/login', name: 'Login', component: LoginPage },
   { path: '/contact', name: 'Contact', component: ContactPage },
+  { path: '/post/:id', name: 'PostDetails', component: PostDetails, props: true}
 ];
 
 const router = createRouter({
