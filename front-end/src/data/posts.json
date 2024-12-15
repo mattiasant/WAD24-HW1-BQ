@@ -1,0 +1,100 @@
+{
+  "Posts": [
+    {
+      "userId": 1,
+      "id": 1,
+      "title": "Oldest University Town",
+      "author": "Tiina Kask",
+      "body": "Tartu is home to the University of Tartu, which was founded in 1632. It's one of the oldest and most prestigious universities in Northern Europe, making Tartu a hub for education and academia.",
+      "create_time": "2024-11-04T09:00:00",
+      "photo_url": "images/University_pic.jpg",
+      "likes": 0
+    },
+    {
+      "userId": 2,
+      "id": 2,
+      "title": "Hansatic League History",
+      "author": "Andrus Kivi",
+      "body": "Tartu has a rich history as a member of the Hanseatic League, a medieval trading organization. This historical connection is reflected in the city's architecture and culture, making it a unique destination for history enthusiasts.",
+      "create_time": "2024-11-04T09:30:00",
+      "likes": 0
+    },
+    {
+      "userId": 3,
+      "id": 3,
+      "title": "Emajõgi River",
+      "author": "Karina Jõgi",
+      "body": "The Emajõgi River flows through Tartu, and it's the second-longest river in Estonia. The river and its scenic banks are a popular place for outdoor activities, picnics, and enjoying the natural beauty of the area.",
+      "create_time": "2024-11-04T10:00:00",
+      "photo_url": "images/emajõgi.jpg",
+      "likes": 0
+    },
+    {
+      "userId": 4,
+      "id": 4,
+      "title": "Estonian National Museum",
+      "author": "John Doe",
+      "body": "The Estonian National Museum, located in Tartu, is a modern and engaging museum that showcases the history and culture of Estonia. It's a must-visit for anyone interested in learning about the country's heritage.",
+      "create_time": "2024-11-04T10:30:00",
+      "likes": 0
+    },
+    {
+      "userId": 5,
+      "id": 5,
+      "title": "Interesting School Fact #1",
+      "author": "Karl Sein",
+      "body": "Did you know that the first public school in the United States, Boston Latin School, was founded in 1635?",
+      "create_time": "2024-11-04T11:00:00",
+      "photo_url": "images/Boston_Latin.jpg",
+      "likes": 0
+    },
+    {
+      "userId": 6,
+      "id": 6,
+      "title": "Fun School Fact #2",
+      "author": "Kristjan Meri",
+      "body": "In Japan, students clean their own classrooms and school facilities. This practice is called 'o-soji.'",
+      "create_time": "2024-11-04T11:30:00",
+      "likes": 0
+    },
+    {
+      "userId": 6,
+      "id": 7,
+      "title": "Amazing School Fact #3",
+      "author": "Kristjan Meri",
+      "body": "The largest school in the world is City Montessori School in Lucknow, India, with over 56,000 students!",
+      "create_time": "2024-11-04T12:00:00",
+      "photo_url": "images/school_Lucknow.jpg",
+      "likes": 0
+    },
+    {
+      "userId": 5,
+      "id": 8,
+      "title": "Educational Fact #4",
+      "author": "Karl Sein",
+      "body": "The world's oldest existing and continually operating educational institution is the University of al-Qarawiyyin in Morocco, founded in 859 AD.",
+      "create_time": "2024-11-04T12:30:00",
+      "likes": 0
+    },
+    {
+      "userId": 5,
+      "id": 9,
+      "title": "School Trivia #5",
+      "author": "Karl Sein",
+      "body": "Some schools in Finland have no homework, and students have shorter school days. It's one of the world's most successful education systems.",
+      "create_time": "2024-11-04T13:00:00",
+      "likes": 0
+
+    },
+    {
+      "userId": 2,
+      "id": 10,
+      "title": "Did You Know #6",
+      "author": "Andrus Kivi",
+      "body": "Albert Einstein was once a student, just like us! He attended the Luitpold Gymnasium in Munich, Germany.",
+      "create_time": "2024-11-04T13:30:00",
+      "photo_url": "images/Einstein.jpg",
+      "likes": 0
+    }
+  ]
+}
