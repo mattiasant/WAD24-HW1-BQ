@@ -1,86 +1,70 @@
-// server.js
 const express = require('express');
-const { pool, createPostTable, addPost, getAllPosts, getPostById, updatePost, deletePost } = require('./database');
+const { pool } = require('./database');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
-const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
+const cookieParser = require('cookie-parser');
 
 const port = process.env.PORT || 3000;
 const app = express();
 
+// Middleware
 app.use(cors({ origin: 'http://localhost:8080', credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
 
-// Create the post table on server start
-createPostTable().catch(console.error);
+// Generate JWT function
+const generateToken = (user) => {
+    return jwt.sign({ id: user.id, email: user.email }, 'your_jwt_secret', {
+        expiresIn: '1h',
+    });
+};
 
-// Route to add a new post
-app.post('/posts', async (req, res) => {
-    const { title, body, urllink } = req.body;
-    try {
-        const newPost = await addPost(title, body, urllink);
-        res.status(201).json(newPost);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
+// Route for user signup
+app.post('/signup', async (req, res) => {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+        return res.status(400).json({ error: 'Email and password are required.' });
     }
-});
 
-// Route to get all posts
-app.get('/posts', async (req, res) => {
     try {
-        const posts = await getAllPosts();
-        res.json(posts);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-});
+        // Check if user already exists
+        const result = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
 
-// Route to get a single post by ID
-app.get('/posts/:id', async (req, res) => {
-    const { id } = req.params;
-    try {
-        const post = await getPostById(id);
-        if (post) {
-            res.json(post);
-        } else {
-            res.status(404).send('Post not found');
+        if (result.rows.length > 0) {
+            return res.status(400).json({ error: 'Email is already in use.' });
         }
+
+        // Hash the password
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        // Insert the new user into the database
+        const newUser = await pool.query(
+            'INSERT INTO users (email, password) VALUES ($1, $2) RETURNING *',
+            [email, hashedPassword]
+        );
+
+        // Generate a JWT token for the user
+        const token = generateToken(newUser.rows[0]);
+
+        // Set token in a cookie (optional)
+        res.cookie('token', token, { httpOnly: true, secure: false }); // secure: true for production
+
+        // Respond with the new user data (exclude password)
+        const user = {
+            id: newUser.rows[0].id,
+            email: newUser.rows[0].email,
+        };
+        res.status(201).json({ user, token });
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        console.error('Error during signup:', error);
+        res.status(500).json({ error: 'Server error during signup.' });
     }
 });
 
-// Route to update a post
-app.put('/posts/:id', async (req, res) => {
-    const { id } = req.params;
-    const { title, body, urllink } = req.body;
-    try {
-        const updatedPost = await updatePost(id, title, body, urllink);
-        if (updatedPost) {
-            res.json(updatedPost);
-        } else {
-            res.status(404).send('Post not found');
-        }
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-});
-
-// Route to delete a post
-app.delete('/posts/:id', async (req, res) => {
-    const { id } = req.params;
-    try {
-        await deletePost(id);
-        res.status(204).send(); // No content to send back
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-});
-
-// Authentication and other routes can be added here as needed
+// Other routes can go here...
 
 app.listen(port, () => {
-    console.log("Server is listening to port " + port);
+    console.log("Server is listening on port " + port);
 });
