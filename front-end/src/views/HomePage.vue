@@ -2,16 +2,13 @@
   <div>
     <Header />
     <div class="logout-container">
-      <router-link to="/login">
-        <button class="logout-button">Logout</button>
-      </router-link>
+      <button class="logout-button" @click="logout">Logout</button>
     </div>
 
     <div class="content-area">
       <div class="sidebox"></div>
       <div class="posts">
         <Post v-for="post in posts" :key="post.id" :post="post" />
-
 
         <div class="buttons-container">
           <router-link to="/addpost">
@@ -26,8 +23,9 @@
   </div>
 </template>
 
+
 <script>
-import {mapState, mapActions} from 'vuex';
+import { mapState, mapActions } from 'vuex';
 import Header from '@/components/CompoHeader.vue';
 import Footer from '@/components/CompoFooter.vue';
 import Post from '@/components/PostItem.vue';
@@ -43,7 +41,7 @@ export default {
     ...mapState(['posts']),
   },
   methods: {
-    ...mapActions(['fetchPosts', 'deleteAllPosts']),
+    ...mapActions(['fetchPosts', 'deleteAllPosts', 'logout']), // Add logout action here
 
     handleDeleteAll() {
       console.log('Delete all button clicked');
@@ -55,6 +53,7 @@ export default {
   },
 };
 </script>
+
 
 <style scoped>
 .content-area {
@@ -104,8 +103,8 @@ export default {
   align-self: center;
 }
 
-
 .logout-button:hover, .add-post-button:hover, .delete-all-button:hover {
   background-color: rgb(72, 145, 255);
 }
+
 </style>
