@@ -55,6 +55,7 @@ export default {
     ...mapActions(['login']),
 
     handleLogin() {
+
       this.login({ email: this.email, password: this.password });
     },
   },

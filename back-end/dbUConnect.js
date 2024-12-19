@@ -5,7 +5,7 @@ const dbConfig = {
     host: "localhost",        // Host (replace with your actual host)
     port: 5432,               // Default PostgreSQL port
     user: "postgres",        // PostgreSQL username
-    password: "parool",// PostgreSQL password
+    password: "postgres",// PostgreSQL password
     database: "homeworkIV" // Name of your database
 };
 
