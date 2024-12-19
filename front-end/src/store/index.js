@@ -63,6 +63,7 @@ export default createStore({
                         // You can also store the token in localStorage or cookies if needed
                         localStorage.setItem('userToken', response.data.token); // Example
                         alert('Login successful!');
+                        window.location.href = response.data.redirectTo || '/';
                         console.log('User logged in:', response.data.user);
                         // Optionally, redirect the user to another page after login
                     } else {
