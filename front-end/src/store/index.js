@@ -61,6 +61,6 @@ export default createStore({
           console.error('Error during login:', error);
           // Handle login error (e.g., show an alert)
         }
-      },
+    },
     modules: {},
 });
