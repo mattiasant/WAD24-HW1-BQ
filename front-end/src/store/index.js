@@ -25,6 +25,19 @@ export default createStore({
     },
     actions: {
 
+        async login({ commit }, { email, password }) {
+            try {
+              const response = await axios.post('http://localhost:3000/login', {
+                email,
+                password,
+              });
+              commit('SET_USER', response.data.user);
+            } catch (error) {
+              console.error('Login error:', error);
+              alert('Login failed. Please try again.');
+            }
+        },
+
         
         // Methods for retrieving posts and resetting likes
         async fetchPosts() {
@@ -51,16 +64,6 @@ export default createStore({
                 alert('Signup failed. Please try again.');
             }
         },
-    },
-    async login({ commit }, { email, password }) {
-        try {
-          const response = await axios.post('http://localhost:3000/login', { email, password });
-          commit('SET_USER', response.data.user);
-          // Handle successful login (e.g., navigate to another page)
-        } catch (error) {
-          console.error('Error during login:', error);
-          // Handle login error (e.g., show an alert)
-        }
     },
     modules: {},
 });

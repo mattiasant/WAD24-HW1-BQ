@@ -1,5 +1,5 @@
 const express = require('express');
-const { pool }  = require('./database');
+const { pool, createUsertable, createPostTable }  = require('./database');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -81,6 +81,8 @@ app.post('/signup', async (req, res) => {
         res.status(500).json({ error: 'Server error during signup.' });
     }
 });
+
+
 
 app.post('/api/posts/',authenticate, async(req, res) => {
     try {
