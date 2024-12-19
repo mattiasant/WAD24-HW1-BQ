@@ -24,6 +24,8 @@ export default createStore({
         },
     },
     actions: {
+
+        
         // Methods for retrieving posts and resetting likes
         async fetchPosts() {
             // Add your logic to fetch posts from an API if needed
@@ -50,5 +52,15 @@ export default createStore({
             }
         },
     },
+    async login({ commit }, { email, password }) {
+        try {
+          const response = await axios.post('http://localhost:3000/login', { email, password });
+          commit('SET_USER', response.data.user);
+          // Handle successful login (e.g., navigate to another page)
+        } catch (error) {
+          console.error('Error during login:', error);
+          // Handle login error (e.g., show an alert)
+        }
+      },
     modules: {},
 });

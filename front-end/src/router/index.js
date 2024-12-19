@@ -10,12 +10,14 @@ const routes = [
   {
     path: '/',
     name: 'HomePage',
-    component: HomePage
+    component: HomePage,
+    meta: { requiresAuth: true }
   },
   {
     path: '/addpost',
     name: 'AddPost',
-    component: AddPost
+    component: AddPost,
+    meta: { requiresAuth: true }
   },
   {
     path: '/signup',
@@ -36,14 +38,25 @@ const routes = [
   {
     path: '/post',
     name: 'PostPage',
-    component: PostPage
+    component: PostPage,
+    meta: { requiresAuth: true }
   }
 
 ];
+
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
+
+router.beforeEach((to, from, next) => {
+  const token = localStorage.getItem('token');
+  if (to.meta.requiresAuth && !token) {
+      next('/login');
+  } else {
+      next();
+  }
+});
 
 export default router

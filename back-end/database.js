@@ -3,7 +3,7 @@ const Pool = require('pg').Pool;
 
 const pool = new Pool({
     user: "postgres",
-    password: "homeworkiv",
+    password: "parool",
     database: "homeworkIV",
     host: "localhost",
     port: "5432"
@@ -25,6 +25,22 @@ const createPostTable = async () => {
         client.release();
     }
 };
+
+//function to create user table
+const createUsertable = async () => {
+    const client = await pool.connect();
+    try {
+        await client.query(`
+            CREATE TABLE IF NOT EXISTS users (
+                id SERIAL PRIMARY KEY,
+                email VARCHAR(255) UNIQUE NOT NULL,
+                password VARCHAR(255) NOT NULL
+            );
+            `);
+        } finally {
+            client.release();
+        }
+    };
 
 // Add a new post
 const addPost = async (title, body, urllink) => {
@@ -64,6 +80,7 @@ const deletePost = async (id) => {
 module.exports = {
     pool,
     createPostTable,
+    createUsertable,
     addPost,
     getAllPosts,
     getPostById,
