@@ -1,5 +1,5 @@
 const express = require('express');
-const { pool, createUsertable, createPostTable }  = require('./database');
+const { pool }  = require('./database');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
