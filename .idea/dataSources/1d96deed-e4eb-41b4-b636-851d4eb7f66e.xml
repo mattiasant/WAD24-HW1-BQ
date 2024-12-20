@@ -3,15 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.53">
     <root id="1">
       <DateStyle>dmy</DateStyle>
-      <Grants>1||-9223372036854775808|c|G
-1||10|c|G
-1||10|C|G
-1||10|T|G
-4||-9223372036854775808|c|G
-4||10|c|G
-4||10|C|G
-4||10|T|G</Grants>
-      <IntrospectionStateNumber>802</IntrospectionStateNumber>
+      <IntrospectionStateNumber>822</IntrospectionStateNumber>
       <ServerVersion>16.6</ServerVersion>
       <StartupTime>1734634056</StartupTime>
       <TimeZones>true ACDT
@@ -808,7 +800,7 @@ false Zulu
 14697||10|C|G
 14697||-9223372036854775808|U|G
 14697||10|U|G</Grants>
-      <IntrospectionStateNumber>802</IntrospectionStateNumber>
+      <IntrospectionStateNumber>822</IntrospectionStateNumber>
       <ObjectId>16613</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4232,8 +4224,8 @@ false Zulu
     <schema id="264" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>802</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-12-19.21:03:40</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>822</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-12-20.00:49:24</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>524</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -4256,7 +4248,7 @@ false Zulu
     </sequence>
     <table id="267" parent="264" name="posttable">
       <ObjectId>16615</ObjectId>
-      <StateNumber>787</StateNumber>
+      <StateNumber>809</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
@@ -4295,7 +4287,33 @@ false Zulu
       <StoredType>varchar(200)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <index id="273" parent="267" name="posttable_pkey">
+    <column id="273" parent="267" name="likes">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StateNumber>805</StateNumber>
+      <StoredType>bigint|0s</StoredType>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="274" parent="267" name="userID">
+      <Position>6</Position>
+      <StateNumber>807</StateNumber>
+      <StoredType>bigint|0s</StoredType>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="275" parent="267" name="Author">
+      <Position>7</Position>
+      <StateNumber>808</StateNumber>
+      <StoredType>varchar|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="276" parent="267" name="create_time">
+      <Position>8</Position>
+      <StateNumber>809</StateNumber>
+      <StoredType>timestamp|0s</StoredType>
+      <TypeId>1114</TypeId>
+    </column>
+    <index id="277" parent="267" name="posttable_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16621</ObjectId>
@@ -4304,14 +4322,14 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="274" parent="267" name="posttable_pkey">
+    <key id="278" parent="267" name="posttable_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16622</ObjectId>
       <Primary>1</Primary>
       <StateNumber>787</StateNumber>
       <UnderlyingIndexId>16621</UnderlyingIndexId>
     </key>
-    <column id="275" parent="268" name="id">
+    <column id="279" parent="268" name="id">
       <DefaultExpression>nextval(&apos;users_id_sequence&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -4320,19 +4338,19 @@ false Zulu
       <SequenceId>16630</SequenceId>
       <TypeId>20</TypeId>
     </column>
-    <column id="276" parent="268" name="email">
+    <column id="280" parent="268" name="email">
       <Position>2</Position>
       <StateNumber>792</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="277" parent="268" name="password">
+    <column id="281" parent="268" name="password">
       <Position>3</Position>
       <StateNumber>792</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <index id="278" parent="268" name="unique_const">
+    <index id="282" parent="268" name="unique_const">
       <ColNames>id
 email
 password</ColNames>
@@ -4350,7 +4368,7 @@ default</CollationNames>
 pg_catalog
 pg_catalog</CollationParentNames>
     </index>
-    <index id="279" parent="268" name="users_pkey">
+    <index id="283" parent="268" name="users_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16628</ObjectId>
@@ -4359,14 +4377,14 @@ pg_catalog</CollationParentNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="280" parent="268" name="users_pkey">
+    <key id="284" parent="268" name="users_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16629</ObjectId>
       <Primary>1</Primary>
       <StateNumber>792</StateNumber>
       <UnderlyingIndexId>16628</UnderlyingIndexId>
     </key>
-    <key id="281" parent="268" name="unique_const">
+    <key id="285" parent="268" name="unique_const">
       <ObjectId>16632</ObjectId>
       <StateNumber>795</StateNumber>
       <UnderlyingIndexId>16631</UnderlyingIndexId>

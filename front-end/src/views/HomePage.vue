@@ -25,7 +25,7 @@
 
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapActions } from 'vuex';
 import Header from '@/components/CompoHeader.vue';
 import Footer from '@/components/CompoFooter.vue';
 import Post from '@/components/PostItem.vue';
@@ -38,7 +38,9 @@ export default {
     Post,
   },
   computed: {
-    ...mapState(['posts']),
+    posts() {
+      return this.$store.state.posts; // Access posts from Vuex store
+    },
   },
   methods: {
     ...mapActions(['fetchPosts', 'deleteAllPosts', 'logout']), // Add logout action here

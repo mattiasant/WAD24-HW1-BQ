@@ -3,7 +3,6 @@
     <div class="post-header">
       <img class="user-pic" src="/profile_pics/profile_pic.jpg" alt="User">
       <p v-if="post.title" class="post-title">{{ post.title }}</p>
-      <p>{{ post.content }}</p>
       <span class="post-date">{{new Date(post.create_time).toLocaleString() }}</span>
     </div>
     <div class="post-content">
@@ -13,7 +12,7 @@
           class="like-button"
           src="images/like.jpg"
       alt="Like"
-      @click="incrementLikes(post.id)"
+      @click="likePost(post.id)"
       />
       <span class="like-count"> Likes:{{ post.likes }}</span>
     </div>
@@ -21,16 +20,36 @@
 </template>
 
 <script>
+import axios from "axios";
 import { mapMutations } from 'vuex';
 
 export default {
   props: {
     post: Object,
+
   },
   methods: {
+
     ...mapMutations(['incrementLikes']),
-  },
-};
+
+    async likePost(postId) {
+      try {
+        const response = await axios.post(`http://localhost:3000/like-post`, { id: postId });
+
+        if (response.data.success) {
+
+          this.incrementLikes(postId); // Call Vuex mutation to update the store
+          console.log('Post liked successfully!');
+        } else {
+          alert('Failed to like the post.');
+        }
+      } catch (error) {
+        console.error('Error liking post:', error);
+        alert('An error occurred while liking the post.');
+      }
+    },
+  }};
+
 </script>
 
 <style scoped>

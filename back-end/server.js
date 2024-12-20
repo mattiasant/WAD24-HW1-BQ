@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 
 const port = process.env.PORT || 3000;
 const app = express();
+const posts = [];
 
 createUsertable().catch(console.error);
 createPostTable().catch(console.error);
@@ -82,6 +83,45 @@ app.post('/login', async (req, res) => {
     }
 });
 
+app.get('/posts', async (req, res) => {
+    try {
+        console.log("get posts request has arrived");
+        const posts = await pool.query(
+            "SELECT * FROM posttable"
+        );
+        res.json(posts.rows); // Return the posts from the database
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({error: 'Failed to fetch posts from database'});
+    }
+});
+
+
+app.post('/like-post', async (req, res) => {
+    const { id } = req.body; // Extract post ID from request body
+
+    if (!id) {
+        return res.status(400).json({ success: false, message: 'Post ID is required' });
+    }
+
+    try {
+        // Increment the 'likes' count for the specified post
+        const result = await pool.query(
+            'UPDATE posttable SET likes = likes + 1 WHERE id = $1 RETURNING *',
+            [id]
+        );
+
+        if (result.rowCount === 0) {
+            return res.status(404).json({ success: false, message: 'Post not found' });
+        }
+
+        // Respond with the updated post data
+        res.status(200).json({ success: true, post: result.rows[0] });
+    } catch (error) {
+        console.error('Error updating likes:', error);
+        res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+});
 
 
 // Route for user signup
